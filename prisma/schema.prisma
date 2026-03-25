@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:postgres@localhost:5432/travel_booking?schema=public"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  login     String   @unique
+  name      String
+  email     String    @unique
+  bookings  Booking[]
+  password  String
+  roleId    Int
+  role      Role     @relation(fields: [roleId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Offer {
+  id            String    @id
+  destination   String
+  price         Float
+  transportType String    // PLANE, TRAIN, BUS
+  availableFrom String    // ISO date string
+  availableTo   String    // ISO date string
+  bookings      Booking[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Booking {
+  id        String        @id
+  status    BookingStatus @default(PENDING)
+  offerId   String
+  offer     Offer         @relation(fields: [offerId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  updatedAt DateTime      @updatedAt
+  createdAt DateTime      @default(now())
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
+

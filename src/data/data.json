@@ -1,0 +1,126 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane@example.com"
+    },
+    {
+      "id": "3",
+      "name": "Alice Johnson",
+      "email": "alice@example.com"
+    },
+    {
+      "id": "4",
+      "name": "Bob Williams",
+      "email": "bob@example.com"
+    },
+    {
+      "id": "5",
+      "name": "Charlie Brown",
+      "email": "charlie@example.com"
+    }
+  ],
+  "offers": [
+    {
+      "id": "1",
+      "destination": "Paris",
+      "price": 299.99,
+      "transportType": "PLANE",
+      "availableFrom": "2024-06-01",
+      "availableTo": "2024-08-31"
+    },
+    {
+      "id": "2",
+      "destination": "London",
+      "price": 199.99,
+      "transportType": "PLANE",
+      "availableFrom": "2024-05-15",
+      "availableTo": "2024-09-30"
+    },
+    {
+      "id": "3",
+      "destination": "Berlin",
+      "price": 149.99,
+      "transportType": "TRAIN",
+      "availableFrom": "2024-06-01",
+      "availableTo": "2024-12-31"
+    },
+    {
+      "id": "4",
+      "destination": "Rome",
+      "price": 249.99,
+      "transportType": "PLANE",
+      "availableFrom": "2024-07-01",
+      "availableTo": "2024-10-31"
+    },
+    {
+      "id": "5",
+      "destination": "Amsterdam",
+      "price": 179.99,
+      "transportType": "BUS",
+      "availableFrom": "2024-05-01",
+      "availableTo": "2024-11-30"
+    },
+    {
+      "id": "6",
+      "destination": "Barcelona",
+      "price": 219.99,
+      "transportType": "PLANE",
+      "availableFrom": "2024-06-15",
+      "availableTo": "2024-09-15"
+    },
+    {
+      "id": "7",
+      "destination": "Vienna",
+      "price": 189.99,
+      "transportType": "TRAIN",
+      "availableFrom": "2024-05-20",
+      "availableTo": "2024-12-20"
+    },
+    {
+      "id": "8",
+      "destination": "Prague",
+      "price": 129.99,
+      "transportType": "BUS",
+      "availableFrom": "2024-06-01",
+      "availableTo": "2024-10-31"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "1",
+      "userId": "1",
+      "offerId": "1",
+      "status": "CONFIRMED",
+      "updatedAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "offerId": "3",
+      "status": "PENDING",
+      "updatedAt": "2024-01-20T14:20:00Z"
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "offerId": "5",
+      "status": "CONFIRMED",
+      "updatedAt": "2024-01-18T09:15:00Z"
+    },
+    {
+      "id": "4",
+      "userId": "3",
+      "offerId": "2",
+      "status": "CANCELLED",
+      "updatedAt": "2024-01-22T16:45:00Z"
+    }
+  ]
+}
+

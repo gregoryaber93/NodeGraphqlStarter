@@ -1,0 +1,14 @@
+# This is a reference Dockerfile for PostgreSQL
+# For local development, use docker-compose.yml instead
+# This file is kept for reference purposes
+
+FROM postgres:15-alpine
+
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=postgres
+ENV POSTGRES_DB=travel_booking
+
+EXPOSE 5432
+
+VOLUME ["/var/lib/postgresql/data"]
+

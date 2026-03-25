@@ -1,0 +1,74 @@
+type Query {
+  offers(filter: OfferFilter, first: Int, after: String): OfferConnection!
+  me: User
+}
+
+type Mutation {
+  bookOffer(offerId: ID!): Booking!
+  updateBookingStatus(bookingId: ID!, status: BookingStatus!): Booking!
+}
+
+type Subscription {
+  bookingStatusChanged(bookingId: ID!): Booking!
+  bookingCreated: Booking!
+}
+
+type Offer {
+  id: ID!
+  destination: String!
+  price: Float!
+  transportType: TransportType!
+  availableFrom: String!
+  availableTo: String!
+}
+
+type Booking {
+  id: ID!
+  status: BookingStatus!
+  offer: Offer!
+  user: User!
+  updatedAt: String!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  bookings: [Booking!]!
+}
+
+input OfferFilter {
+  destination: String
+  priceMin: Float
+  priceMax: Float
+  transportType: TransportType
+  availableFrom: String
+  availableTo: String
+}
+
+type OfferConnection {
+  edges: [OfferEdge!]!
+  pageInfo: PageInfo!
+}
+
+type OfferEdge {
+  cursor: String!
+  node: Offer!
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+}
+
+enum TransportType {
+  PLANE
+  TRAIN
+  BUS
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
